@@ -20,23 +20,25 @@ function funWithStickers(phrase) {
   let ourObject = {}
   for (let letter of phrase){
     if (ourObject[letter]) {
-      ourObject[letter] = ourObject[letter] + 1
+      ourObject[letter] = ourObject[letter] + 1;
     } else {
-      ourObject[letter] = 1
+      ourObject[letter] = 1;
     }
   }
   const entryArray = Object.entries(ourObject)
   let highest = ['', 0];
+  let val = 0;
   for (let i = 0; i < entryArray.length - 1; i++){
-    if (entryArray[i][1] > highest[1]) {
-      if(entryArray[i][0] == 'a') {
-        highest = [entryArray[i][0], entryArray[i][1] / 2]
+      if(entryArray[i][0] == 'a'){
+        val = entryArray[i][1] / 2;
+      } else {
+        val = entryArray[i][1];
       }
-      else {
-        highest = entryArray[i]
+      if(val > highest[1]){
+          highest = [entryArray[i][0], val];
       }
-    } 
   }
-  console.log(highest[1])
+  console.log(highest[1]);
 }
-funWithStickers('tame giants saaaaaaaa')
+
+funWithStickers('tame giantstt saaaa');
